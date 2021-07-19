@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap");
+/* I. Phone Styles */
+/* Overarching div styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  min-height: 100%;
+  background: hsl(127, 59%, 95%);
+  display: flex;
+  justify-content: center;
+}
+
+/* General font styles */
+
+/* Headings */
+
+/* Paragraphs and lists */
