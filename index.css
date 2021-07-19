@@ -9,10 +9,26 @@
 body {
   width: 100%;
   min-height: 100%;
-  background: hsl(127, 59%, 95%);
+  background: hsl(127, 100%, 12%);
   display: flex;
   justify-content: center;
 }
+main {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+}
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: hsl(127, 100%, 25%);
+  height: 5em;
+  padding: .7em;
+}
+
 
 /* General font styles */
 
