@@ -10,7 +10,7 @@
 body {
   width: 100%;
   min-height: 100%;
-  background: hsl(127, 100%, 12%);
+  background: hsl(127, 100%, 10%);
   display: flex;
   justify-content: center;
 }
@@ -25,6 +25,7 @@ main {
 section {
   position: relative;
   padding: 1em;
+  width: 100%;
 }
 section::after { /* This is the small graphical element to separate sections */
   content: '';
@@ -41,7 +42,7 @@ section::after { /* This is the small graphical element to separate sections */
 
 /* Header */
 header {
-  z-index: 2;
+  z-index: 100;
   position: sticky;
   top: 0;
   display: flex;
@@ -64,12 +65,13 @@ nav#nav-bar {
 }
 
 /* General styling for channel profile picture that links to my YouTube Channel */
-a.channel-link, img.channel-img {
+.channel-link, .channel-img {
   display: inline-block;
   position: relative;
   transition: transform .2s;
+  transition-timing-function: ease-out;
 }
-a.channel-link::before {
+.channel-link::before {
   content: '';
   position: absolute;
   z-index: -1;
@@ -78,19 +80,20 @@ a.channel-link::before {
   opacity: 0.5;
   border-radius: 50%;
   box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.042),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.061),
-    0 12.5px 10px rgba(0, 0, 0, 0.075),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.089),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.108),
-    0 100px 80px rgba(0, 0, 0, 0.15)
+    0 1.4px 2.2px rgba(0, 0, 0, 0.056),
+    0 3.3px 5.3px rgba(0, 0, 0, 0.081),
+    0 6.3px 10px rgba(0, 0, 0, 0.1),
+    0 11.2px 17.9px rgba(0, 0, 0, 0.119),
+    0 20.9px 33.4px rgba(0, 0, 0, 0.144),
+    0 50px 80px rgba(0, 0, 0, 0.2)
   ;
   transition: opacity .2s;
+  transition-timing-function: ease-out;
 }
-a.channel-link:hover, a.channel-link:focus {
+.channel-link:hover, .channel-link:focus {
   transform: translateY(-.1em);
 }
-a.channel-link:hover::before {
+.channel-link:hover::before {
   opacity: 1;
 }
 /* Specifics for the heading one */
@@ -108,14 +111,13 @@ a.nav-link {
 }
 a.nav-link:hover, a.nav-link:focus {
   text-decoration-color: hsla(127, 100%, 95%, 1);
-  transform: translateY(-.1em);
+  transform: translateY(-.2em);
 }
 
 /* Email form section */
 section#email-form {
   display: grid;
   grid-row-gap: 1.5em;
-  width: 100%;
 }
 form#form {
   display: grid;
@@ -137,30 +139,38 @@ input[type="submit"] {
 }
 
 /* About section */
-a#BPMc-YouTube-Channel-link, img#BPMc-YouTube-Channel-img {
+section#about {
+  display: grid;
+  grid-row-gap: 1em;
+}
+#about-contents-wrapper--2a, #about-contents-wrapper--2b {
+  grid-row-gap: 1em;
+}
+.channel-link--about, .channel-img--about {
   height: 10em;
   width: 10em;
   align-self: center;
 }
-a#BPMc-YouTube-Channel-link:hover, a#BPMc-YouTube-Channel-link:focus {
+.channel-link--about:hover, .channel-link--about:focus {
   transform: translateY(-.25em);
 }
-#BPMc-YouTube-Channel-name {
+.YouTube-Channel-name {
   align-self: center;
-  margin: 1em 0;
+  z-index: 2;
 }
 .about-contents-wrapper {
   display: flex;
   flex-direction: column;
 }
 
-/* General font styles */
-a, p, input {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  color: white;
+/* Featured video section & Ongoing series section */
+section#featured-video, section#ongoing-series {
+  max-width: calc(560px + 4em);
+  height: auto;
 }
+
+/* General font styles */
+/* Font styles - Headings */
 h2, h3 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -173,13 +183,22 @@ h2 {
 h3 {
   font-size: 1.2em;
 }
+/* Font styles - Paragraphs, links, input */
+a, p, input {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: white;
+}
 p {
   margin-bottom: 1em;
 }
-.BPMc-logo-font {
+.BPMc-logo-font, .MRTP-logo-font {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  text-align: center;
 }
+/* Miscellaneous */
 p.small-note {
   font-size: .7rem;
   font-style: italic;
@@ -192,10 +211,6 @@ em.emphasize--bold {
   font-weight: 700;
   font-style: normal;
 }
-
-/* Headings */
-
-/* Paragraphs and lists */
 
 /* II. Tablet Styles */
 @media (min-width: 600px) {
