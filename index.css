@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,500&family=Open+Sans:wght@400;700&display=swap');
 /* I. Phone Styles */
 /* Overarching div styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-padding-top: 7em;
 }
 body {
   width: 100%;
@@ -17,21 +18,287 @@ main {
   width: 100%;
   min-height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
+section {
+  position: relative;
+  padding: 1em;
+}
+section::after { /* This is the small graphical element to separate sections */
+  content: '';
+  display: block;
+  position: absolute;
+  /* Centering to the middle */
+  left: 50%; /* Brings the left side of the element to the middle */
+  margin-left: -2.5em; /* Offset by half the width of element to center */
+  bottom: -.1em; /* Offset by half the height of the element so it's in the middle of both sections */
+  height: .2em;
+  width: 5em;
+  background: hsl(127, 100%, 17%);
+}
+
 /* Header */
 header {
+  z-index: 2;
+  position: sticky;
+  top: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  height: 7em;
   width: 100%;
   background: hsl(127, 100%, 25%);
-  height: 5em;
-  padding: .7em;
+}
+div#header-contents-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: .7em 1em;
+}
+nav#nav-bar {
+  display: grid;
+  grid-template-rows: repeat(3, 2em);
 }
 
+/* General styling for channel profile picture that links to my YouTube Channel */
+a.channel-link, img.channel-img {
+  display: inline-block;
+  position: relative;
+  transition: transform .2s;
+}
+a.channel-link::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  border-radius: 50%;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.042),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.061),
+    0 12.5px 10px rgba(0, 0, 0, 0.075),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.089),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.108),
+    0 100px 80px rgba(0, 0, 0, 0.15)
+  ;
+  transition: opacity .2s;
+}
+a.channel-link:hover, a.channel-link:focus {
+  transform: translateY(-.1em);
+}
+a.channel-link:hover::before {
+  opacity: 1;
+}
+/* Specifics for the heading one */
+a#header-img-link, img#header-img {
+  height: 3em;
+}
+
+a.nav-link {
+  display: block;
+  align-self: center;
+  text-align: right;
+  color: white;
+  text-decoration: underline 0.1em hsla(127, 100%, 95%, 0);
+  transition: text-decoration-color .2s, transform .2s;
+}
+a.nav-link:hover, a.nav-link:focus {
+  text-decoration-color: hsla(127, 100%, 95%, 1);
+  transform: translateY(-.1em);
+}
+
+/* Email form section */
+section#email-form {
+  display: grid;
+  grid-row-gap: 1.5em;
+  width: 100%;
+}
+form#form {
+  display: grid;
+  grid-row-gap: .7em;
+}
+h2#email-form-heading {
+  margin-bottom: unset;
+}
+input[type="email"], input[type="submit"] {
+  border: none;
+  padding: .7em;
+  border-radius: .5em;
+}
+input[type="submit"] {
+  background: hsl(49, 100%, 50%);
+  color: black;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* About section */
+a#BPMc-YouTube-Channel-link, img#BPMc-YouTube-Channel-img {
+  height: 10em;
+  width: 10em;
+  align-self: center;
+}
+a#BPMc-YouTube-Channel-link:hover, a#BPMc-YouTube-Channel-link:focus {
+  transform: translateY(-.25em);
+}
+#BPMc-YouTube-Channel-name {
+  align-self: center;
+  margin: 1em 0;
+}
+.about-contents-wrapper {
+  display: flex;
+  flex-direction: column;
+}
 
 /* General font styles */
+a, p, input {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: white;
+}
+h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: white;
+  margin-bottom: .3em;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.2em;
+}
+p {
+  margin-bottom: 1em;
+}
+.BPMc-logo-font {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+p.small-note {
+  font-size: .7rem;
+  font-style: italic;
+}
+em.emphasize--color {
+  color: hsla(127, 100%, 80%, 1);
+  font-style: normal;
+}
+em.emphasize--bold {
+  font-weight: 700;
+  font-style: normal;
+}
 
 /* Headings */
 
 /* Paragraphs and lists */
+
+/* II. Tablet Styles */
+@media (min-width: 600px) {
+  /* Overarching div styles */
+  * {
+    scroll-padding-top: 5em;
+  }
+  section {
+    padding: 2em;
+    max-width: 50em;
+  }
+  /* Header */
+  header {
+    height: 5em;
+  }
+  div#header-contents-wrapper {
+    justify-content: space-between;
+    align-items: center;
+    height: 5em;
+    padding: 0 2em;
+    max-width: 50em;
+  }
+  nav#nav-bar {
+    grid-auto-flow: column;
+    grid-column-gap: 1.5em;
+    grid-template-rows: unset;
+  }
+
+  /* Email form section */
+  section#email-form {
+    grid-template-areas:
+      "h2 form"
+      "note note";
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1.5em;
+    grid-row-gap: .7em;
+    max-width: 50em;
+  }
+  h2#email-form-heading {
+    grid-area: h2;
+  }
+  form#form {
+    display: grid;
+    grid-area: form;
+    width: 100%;
+    height: min-content;
+    align-self: center;
+    justify-self: right;
+    grid-row-gap: .7em;
+    max-width: 20em;
+  }
+  input[type="email"], input[type="submit"] {
+    padding: .7em 1em;
+  }
+  p#email-form-note {
+    grid-area: note;
+  }
+
+  /* About section */
+  section#about {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2em;
+    grid-template-areas:
+      "about-text about-text"
+      "BPMc MRTP";
+  }
+  div#about-contents-wrapper--1 {
+    grid-area: about-text;
+  }
+  div#about-contents-wrapper--2a {
+    grid-area: BPMc;
+  }
+  div#about-contents-wrapper--2b {
+    grid-area: MRTP;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Overarching div styles */
+  section {
+    padding: 5em 2em;
+    max-width: 65em;
+  }
+  /* Header */
+  div#header-contents-wrapper {
+    max-width: 65em;
+  }
+  /* Email form section */
+  section#email-form {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1.5em;
+    grid-row-gap: .7em;
+    max-width: 65em;
+  }
+  form#form {
+    justify-self: center;
+  }
+  input[type="email"], input[type="submit"] {
+    padding: 1em 1.5em;
+  }
+  /* General font styles */
+  h2 {
+    font-size: 2.5em;
+  }
+}

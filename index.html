@@ -10,13 +10,44 @@
 <body>
   <main>
     <header id="header">
-      <img id="header-img" src="https://raw.githubusercontent.com/Bryan123BG/Bryan-s_FCC-Product-Landing-Page/master/images/BPMc-square-text-logo--rounded.png" alt="BryanPlaysMinecraft! Channel Profile Picture">
-      <nav id="nav-bar">
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#featuredVideo">Featured Video</a>
-        <a class="nav-link" href="#ongoingSeries">Ongoing Series</a>
-      </nav>
+      <div id="header-contents-wrapper">
+        <a id="header-img-link" class="channel-link" href="https://www.youtube.com/channel/UCGQWVs9xPkUTdH1r70cQ4Bg"><img id="header-img" class="channel-img" src="https://raw.githubusercontent.com/Bryan123BG/Bryan-s_FCC-Product-Landing-Page/master/images/BPMc-Channel-profile-picture--1--circle.png" alt="BryanPlaysMinecraft! Channel Profile Picture"></a>
+        <nav id="nav-bar">
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#featured-video">Featured Video</a>
+          <a class="nav-link" href="#ongoing-series">Ongoing Series</a>
+        </nav>
+      </div>
     </header>
+    <section id="email-form">
+      <h2 id="email-form-heading">Get fresh <em class="emphasize--color">modded Minecraft let's plays</em> in your inbox!</h2>
+      <form id="form" action="https://www.freecodecamp.com/email-submit">
+        <input id="email" type="email" placeholder="Enter your email address here" name="email">
+        <input id="submit" type="submit" value="Sign me up :D">
+      </form>
+      <p id="email-form-note" class="small-note">P.S. This doesn't actually work; it's only for FCC project purpouses (uses their dummy link)</p>
+    </section>
+    <section id="about">
+      <div id="about-contents-wrapper--1" class="about-contents-wrapper">
+        <h2 id="about-heading">About</h2>
+        <p>Hello, my name is Bryan and <em class="emphasize--color emphasize--bold">I make clean Minecraft gameplay videos</em>. I used to make Hypixel Skywars videos but now I generally focus on Minecraft modpacks.</p>
+        <p>The more recent videos are aimed to be <em class="emphasize--bold">focused</em>, <em class="emphasize--bold">concise</em>, and (hopefully) <em class="emphasize--bold">entertaining</em> let's plays, as said in the channel tagline.</p>
+        <p>Thank you for checking out my channel and I hope you have a great time here watching my videos and interacting with me in the comments section :)</p>
+        <p>~ Bryan123BG</p>
+      </div>
+      <div id="about-contents-wrapper--2a" class="about-contents-wrapper">
+        <h3>Click below to go to my YouTube Channel!</h3>
+        <a id="BPMc-YouTube-Channel-link" class="channel-link" href="https://www.youtube.com/channel/UCGQWVs9xPkUTdH1r70cQ4Bg"><img id="BPMc-YouTube-Channel-img" class="channel-img" src="https://raw.githubusercontent.com/Bryan123BG/Bryan-s_FCC-Product-Landing-Page/master/images/BPMc-Channel-profile-picture--1--circle.png" alt="BryanPlaysMinecraft! Channel Profile Picture"></a>
+        <p id="BPMc-YouTube-Channel-name" class="BPMc-logo-font">BryanPlaysMinecraft!</p>
+      </div>
+      <div id="about-contents-wrapper--2b" class="about-contents-wrapper">
+        <h3>Check out my other YouTube channel too :)</h3>
+        <a id="MRTP-YouTube-Channel-link" class="channel-link" href="https://www.youtube.com/channel/UC5ix3PcyKFl84_uxhH-KxeA"><img id="MRTP-YouTube-Channel-img" class="channel-img" src="https://raw.githubusercontent.com/Bryan123BG/Bryan-s_FCC-Product-Landing-Page/master/images/BPMc-Channel-profile-picture--1--circle.png" alt="BryanPlaysMinecraft! Channel Profile Picture"></a>
+        <p id="MRTP-YouTube-Channel-name" class="MRTP-logo-font">BryanPlaysMinecraft!</p>
+      </div>
+    </section>
+    <section id="featured-video"></section>
+    <section id="ongoing-series"></section>
   </main>
   <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
