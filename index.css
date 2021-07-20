@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,500&family=Open+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,500&family=Open+Sans:wght@400;700&display=swap");
 /* I. Phone Styles */
 /* Overarching div styles */
 * {
@@ -27,17 +27,24 @@ section {
   padding: 1em;
   width: 100%;
 }
-section::after { /* This is the small graphical element to separate sections */
-  content: '';
+section::after {
+  /* This is the small graphical element to separate sections */
+  content: "";
   display: block;
   position: absolute;
   /* Centering to the middle */
   left: 50%; /* Brings the left side of the element to the middle */
   margin-left: -2.5em; /* Offset by half the width of element to center */
-  bottom: -.1em; /* Offset by half the height of the element so it's in the middle of both sections */
-  height: .2em;
+  bottom: -0.1em; /* Offset by half the height of the element so it's in the middle of both sections */
+  height: 0.2em;
   width: 5em;
   background: hsl(127, 100%, 17%);
+}
+section:last-of-type::after {
+  content: unset;
+}
+.remove-focus-outline:focus {
+  outline: none;
 }
 
 /* Header */
@@ -51,13 +58,32 @@ header {
   height: 7em;
   width: 100%;
   background: hsl(127, 100%, 25%);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.014),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.02), 0 12.5px 10px rgba(0, 0, 0, 0.025),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.03), 0 41.8px 33.4px rgba(0, 0, 0, 0.036),
+    0 100px 80px rgba(0, 0, 0, 0.05);
+}
+#header-channel-logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+#BPMc-h1 {
+  margin: 0 0 0 1em;
+
+  /* copy-pasted from FCC :D */
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
 }
 div#header-contents-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: .7em 1em;
+  padding: 0.7em 1em;
 }
 nav#nav-bar {
   display: grid;
@@ -65,77 +91,132 @@ nav#nav-bar {
 }
 
 /* General styling for channel profile picture that links to my YouTube Channel */
-.channel-link, .channel-img {
+.channel-link,
+.channel-img {
   display: inline-block;
   position: relative;
-  transition: transform .2s;
+  transition: transform 0.2s;
   transition-timing-function: ease-out;
 }
 .channel-link::before {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
   width: 100%;
   height: 100%;
   opacity: 0.5;
   border-radius: 50%;
-  box-shadow:
-    0 1.4px 2.2px rgba(0, 0, 0, 0.056),
-    0 3.3px 5.3px rgba(0, 0, 0, 0.081),
-    0 6.3px 10px rgba(0, 0, 0, 0.1),
-    0 11.2px 17.9px rgba(0, 0, 0, 0.119),
-    0 20.9px 33.4px rgba(0, 0, 0, 0.144),
-    0 50px 80px rgba(0, 0, 0, 0.2)
-  ;
-  transition: opacity .2s;
+  box-shadow: 0 1.4px 2.2px rgba(0, 0, 0, 0.056),
+    0 3.3px 5.3px rgba(0, 0, 0, 0.081), 0 6.3px 10px rgba(0, 0, 0, 0.1),
+    0 11.2px 17.9px rgba(0, 0, 0, 0.119), 0 20.9px 33.4px rgba(0, 0, 0, 0.144),
+    0 50px 80px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s;
   transition-timing-function: ease-out;
 }
-.channel-link:hover, .channel-link:focus {
-  transform: translateY(-.1em);
+.channel-link::after,
+a.nav-link::after {
+  content: "";
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+  border: hsl(127, 80%, 80%) solid 0.15em;
+  box-sizing: unset;
+
+  transition: opacity 0.2s;
+  transition-timing-function: ease-out;
 }
-.channel-link:hover::before {
+.channel-link::after {
+  top: -0.3em;
+  left: -0.3em;
+  border-radius: 50%;
+  padding: 0.15em;
+}
+.channel-link:hover,
+.channel-link:focus {
+  transform: translateY(-0.1em);
+}
+.channel-link:hover::before,
+.channel-link:focus::before,
+.channel-link:hover::after,
+.channel-link:focus::after,
+a.nav-link:hover::after,
+a.nav-link:focus::after {
   opacity: 1;
 }
 /* Specifics for the heading one */
-a#header-img-link, img#header-img {
+a#header-img-link,
+img#header-img {
   height: 3em;
 }
 
 a.nav-link {
   display: block;
+  position: relative;
   align-self: center;
   text-align: right;
   color: white;
   text-decoration: underline 0.1em hsla(127, 100%, 95%, 0);
-  transition: text-decoration-color .2s, transform .2s;
+  transition: transform 0.2s;
+  transition-timing-function: ease-out;
 }
-a.nav-link:hover, a.nav-link:focus {
-  text-decoration-color: hsla(127, 100%, 95%, 1);
-  transform: translateY(-.2em);
+a.nav-link::after,
+a.nav-link::after {
+  top: -0.35em;
+  left: -0.5em;
+  border-radius: 0.5em;
+  padding: 0.2em 0.35em;
+}
+a.nav-link:hover,
+a.nav-link:focus {
+  /* text-decoration-color: hsl(127, 80%, 80%); */
+  transform: translateY(-0.2em);
 }
 
 /* Email form section */
 section#email-form {
+  padding: 1.5em 1em 1em 1em;
   display: grid;
   grid-row-gap: 1.5em;
 }
 form#form {
   display: grid;
-  grid-row-gap: .7em;
+  grid-row-gap: 0.7em;
 }
 h2#email-form-heading {
   margin-bottom: unset;
 }
-input[type="email"], input[type="submit"] {
+input[type="email"],
+input[type="submit"] {
+  position: relative;
   border: none;
-  padding: .7em;
-  border-radius: .5em;
+  padding: 0.7em;
+  border-radius: 0.5em;
+  transition: box-shadow 0.2s;
+}
+input[type="email"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  box-shadow: 0 0 0 0.2em hsl(127, 100%, 10%), 0 0 0 0.35em hsl(127, 100%, 35%);
 }
 input[type="submit"] {
-  background: hsl(49, 100%, 50%);
+  background-color: hsl(49, 100%, 50%);
   color: black;
   cursor: pointer;
   font-weight: 700;
+  transition: box-shadow 0.2s, transform 0.2s, background-color 0.2s;
+  transition-timing-function: ease-out;
+}
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  transform: translateY(-0.2em);
+  background-color: hsl(49, 100%, 65%);
+}
+input[type="submit"]:active {
+  transform: translateY(0);
+  background-color: hsl(49, 100%, 45%);
 }
 
 /* About section */
@@ -143,16 +224,30 @@ section#about {
   display: grid;
   grid-row-gap: 1em;
 }
-#about-contents-wrapper--2a, #about-contents-wrapper--2b {
+#about-contents-wrapper--2a,
+#about-contents-wrapper--2b {
   grid-row-gap: 1em;
 }
-.channel-link--about, .channel-img--about {
+.channel-link--about,
+.channel-img--about {
   height: 10em;
   width: 10em;
   align-self: center;
 }
-.channel-link--about:hover, .channel-link--about:focus {
-  transform: translateY(-.25em);
+.channel-link--about::after {
+  top: -0.6em;
+  left: -0.6em;
+  padding: 0.35em;
+}
+.channel-link--about--BPMc::after {
+  border: hsl(127, 80%, 80%) solid 0.25em;
+}
+.channel-link--about--MRTP::after {
+  border: hsl(212, 80%, 78%) solid 0.25em;
+}
+.channel-link--about:hover,
+.channel-link--about:focus {
+  transform: translateY(-0.25em);
 }
 .YouTube-Channel-name {
   align-self: center;
@@ -164,47 +259,59 @@ section#about {
 }
 
 /* Featured video section & Ongoing series section */
-section#featured-video, section#ongoing-series {
+section#featured-video,
+section#ongoing-series {
   max-width: calc(560px + 4em);
   height: auto;
 }
 
 /* General font styles */
 /* Font styles - Headings */
-h2, h3 {
-  font-family: 'Montserrat', sans-serif;
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: white;
-  margin-bottom: .3em;
+  margin-bottom: 0.3em;
+}
+h1 {
+  font-size: 0.7rem;
 }
 h2 {
   font-size: 2rem;
 }
 h3 {
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 /* Font styles - Paragraphs, links, input */
-a, p, input {
-  font-family: 'Open Sans', sans-serif;
+a,
+p,
+input {
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
+}
+a,
+p {
   color: white;
 }
 p {
   margin-bottom: 1em;
 }
-.BPMc-logo-font, .MRTP-logo-font {
-  font-family: 'Montserrat', sans-serif;
+.BPMc-logo-font,
+.MRTP-logo-font {
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   text-align: center;
 }
 /* Miscellaneous */
 p.small-note {
-  font-size: .7rem;
+  font-size: 0.7rem;
   font-style: italic;
 }
 em.emphasize--color {
-  color: hsla(127, 100%, 80%, 1);
+  color: hsl(127, 80%, 80%);
   font-style: normal;
 }
 em.emphasize--bold {
@@ -226,6 +333,14 @@ em.emphasize--bold {
   header {
     height: 5em;
   }
+  #BPMc-h1 {
+    position: unset;
+    left: unset;
+    width: unset;
+    height: unset;
+    top: unset;
+    overflow: unset;
+  }
   div#header-contents-wrapper {
     justify-content: space-between;
     align-items: center;
@@ -241,12 +356,13 @@ em.emphasize--bold {
 
   /* Email form section */
   section#email-form {
+    padding: 3em 2em 2em 2em;
     grid-template-areas:
       "h2 form"
       "note note";
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1.5em;
-    grid-row-gap: .7em;
+    grid-row-gap: 0.7em;
     max-width: 50em;
   }
   h2#email-form-heading {
@@ -259,11 +375,12 @@ em.emphasize--bold {
     height: min-content;
     align-self: center;
     justify-self: right;
-    grid-row-gap: .7em;
+    grid-row-gap: 0.7em;
     max-width: 20em;
   }
-  input[type="email"], input[type="submit"] {
-    padding: .7em 1em;
+  input[type="email"],
+  input[type="submit"] {
+    padding: 0.7em 1em;
   }
   p#email-form-note {
     grid-area: note;
@@ -288,6 +405,12 @@ em.emphasize--bold {
     grid-area: MRTP;
   }
 }
+/* Just to bump up that font size so that it doesn't look too small */
+@media (min-width: 700px) {
+  h1 {
+    font-size: 1rem;
+  }
+}
 
 @media (min-width: 1200px) {
   /* Overarching div styles */
@@ -301,16 +424,18 @@ em.emphasize--bold {
   }
   /* Email form section */
   section#email-form {
+    padding: 6em 2em 5em 2em;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1.5em;
-    grid-row-gap: .7em;
+    grid-row-gap: 0.7em;
     max-width: 65em;
   }
   form#form {
     justify-self: center;
+    grid-row-gap: 1em;
   }
-  input[type="email"], input[type="submit"] {
-    padding: 1em 1.5em;
+  input[type="submit"] {
+    padding: 1em 1.2em;
   }
   /* General font styles */
   h2 {
