@@ -187,6 +187,21 @@ form#form {
 h2#email-form-heading {
   margin-bottom: unset;
 }
+/* Removing default form elements styles (iOS, etc. see from here: https://www.daretothink.co.uk/stop-ios-styling-your-input-fields-and-buttons/)  */
+/* Note: intentionally separated since some of these CSS properties are browser specific and will break if combined together. */
+input[type="email"],
+input[type="submit"] {
+  -webkit-appearance: none;
+}
+input[type="email"],
+input[type="submit"] {
+  -moz-appearance: none;
+}
+input[type="email"],
+input[type="submit"] {
+  appearance: none;
+}
+/* back to regular styling... */
 input[type="email"],
 input[type="submit"] {
   position: relative;
